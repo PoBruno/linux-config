@@ -69,7 +69,6 @@ alias docker-ps-command="docker ps --format 'table {{.Names}}\t{{.Command}}' --n
 ## Profile Json
 
 ```json
-
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "blocks": [
@@ -126,7 +125,12 @@ alias docker-ps-command="docker ps --format 'table {{.Names}}\t{{.Command}}' --n
       "type": "prompt"
     }
   ],
-  "version": 2
+  "version": 2,
+  "alias": {
+    "docker-ps": "docker ps --format 'table {{.Names}}\t{{.Ports}}\t{{.Status}}'",
+    "docker-ps-command": "docker ps --format 'table {{.Names}}\t{{.Command}}' --no-trunc",
+    "l": "lsd",
+    "ls": "lsd"
+  }
 }
-
 ```
