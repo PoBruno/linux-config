@@ -1,64 +1,187 @@
 {
-  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-  "blocks": [
-    {
-      "alignment": "left",
-      "segments": [
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "blocks": [
         {
-          "foreground": "#45F1C2",
-          "style": "plain",
-          "template": "\ueb99 {{ .UserName }} on",
-          "type": "session"
+            "alignment": "left",
+            "segments": [
+                {
+                    "foreground": "#45F1C2",
+                    "style": "plain",
+                    "template": "\ueb99 {{ .UserName }} on",
+                    "type": "session"
+                },
+                {
+                    "foreground": "#0CA0D8",
+                    "properties": {
+                        "folder_separator_icon": "/",
+                        "style": "full"
+                    },
+                    "style": "plain",
+                    "template": " \uf07b {{ .Path }} ",
+                    "type": "path"
+                },
+                {
+                    "type": "git",
+                    "foreground": "#14A5AE",
+                    "powerline_symbol": "\ue0b0",
+                    "properties": {
+                        "fetch_stash_count": true,
+                        "fetch_upstream_icon": true
+                    },
+                    "style": "plain",
+                    "template": "{{ .UpstreamIcon }}{{ .HEAD }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} "
+                    
+                },
+                {
+                    "type": "az",
+                    "style": "powerline",
+                    "powerline_symbol": "\ue0b0",
+                    "foreground": "#000000",
+                    "background": "#9ec3f0",
+                    "template": "  {{ .EnvironmentName }}"
+                },
+                {
+                    "type": "kubectl",
+                    "style": "powerline",
+                    "powerline_symbol": "\ue0b0",
+                    "foreground": "#000000",
+                    "background": "#ebcc34",
+                    "template": " ﴱ {{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}} ",
+                    "properties": {
+                        "context_aliases": {
+                            "arn:aws:eks:eu-west-1:1234567890:cluster/posh": "posh"
+                        }
+                    }
+                },
+                {
+                    "type": "wakatime",
+                    "style": "powerline",
+                    "powerline_symbol": "\ue0b0",
+                    "foreground": "#000000",
+                    "background": "#ff9900",
+                    "properties": {
+                        "url": "https://wakatime.com/api/v1/users/current/summaries?start=today&end=today&api_key=asdasd",
+                        "cache_timeout": 10,
+                        "http_timeout": 500
+                    },
+                    "template": "  {{ .Data[0].grand_total.text }}"
+                },
+                {
+                    "type": "aws",
+                    "style": "powerline",
+                    "powerline_symbol": "\ue0b0",
+                    "foreground": "#000000",
+                    "background": "#ff9900",
+                    "template": "  {{ .Profile }}"
+                },
+                {
+                    "type": "terraform",
+                    "style": "powerline",
+                    "powerline_symbol": "\ue0b0",
+                    "foreground": "#000000",
+                    "background": "#5c4ee8",
+                    "template": "  {{ .Workspace }}"
+                },
+                {
+                    "type": "docker",
+                    "style": "powerline",
+                    "powerline_symbol": "\ue0b0",
+                    "foreground": "#ffffff",
+                    "background": "#0db7ed",
+                    "template": "  {{ .Container }}"
+                },
+                {
+                    "type": "python",
+                    "style": "powerline",
+                    "powerline_symbol": "\ue0b0",
+                    "foreground": "#000000",
+                    "background": "#306998",
+                    "template": "  {{ .Version }}"
+                },
+                {
+                    "type": "dotnet",
+                    "style": "powerline",
+                    "powerline_symbol": "\ue0b0",
+                    "foreground": "#000000",
+                    "background": "#512bd4",
+                    "template": "  {{ .Version }}"
+                },
+                {
+                    "type": "java",
+                    "style": "powerline",
+                    "powerline_symbol": "\ue0b0",
+                    "foreground": "#000000",
+                    "background": "#5382a1",
+                    "template": "  {{ .Version }}"
+                },
+                {
+                    "type": "php",
+                    "style": "powerline",
+                    "powerline_symbol": "\ue0b0",
+                    "foreground": "#000000",
+                    "background": "#8892be",
+                    "template": "  {{ .Version }}"
+                },
+                {
+                    "type": "ruby",
+                    "style": "powerline",
+                    "powerline_symbol": "\ue0b0",
+                    "foreground": "#000000",
+                    "background": "#cc342d",
+                    "template": "  {{ .Version }}"
+                },
+                {
+                    "type": "spotify",
+                    "style": "powerline",
+                    "foreground": "#1DB954",
+                    "template": "  {{ .Track }}"
+                }
+            ],
+            "type": "prompt"
         },
         {
-          "foreground": "#0CA0D8",
-          "properties": {
-            "folder_separator_icon": "/",
-            "style": "full"
-          },
-          "style": "plain",
-          "template": " \uf07b {{ .Path }} ",
-          "type": "path"
-        },
-        {
-          "foreground": "#14A5AE",
-          "powerline_symbol": "\ue0b0",
-          "properties": {
-            "fetch_stash_count": true,
-            "fetch_upstream_icon": true
-          },
-          "style": "plain",
-          "template": "{{ .UpstreamIcon }}{{ .HEAD }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
-          "type": "git"
+            "alignment": "left",
+            "newline": true,
+            "segments": [
+                {
+                    "foreground": "#cd5e42",
+                    "style": "plain",
+                    "template": "\ue3bf ",
+                    "type": "root"
+                },
+                {
+                    "foreground": "#CD4277",
+                    "style": "plain",
+                    "template": "# ",
+                    "type": "text"
+                }
+            ],
+            "type": "prompt"
         }
-      ],
-      "type": "prompt"
-    },
-    {
-      "alignment": "left",
-      "newline": true,
-      "segments": [
+        
+    ],
+    "tooltips": [
         {
-          "foreground": "#cd5e42",
-          "style": "plain",
-          "template": "\ue3bf ",
-          "type": "root"
-        },
-        {
-          "foreground": "#CD4277",
-          "style": "plain",
-          "template": "# ",
-          "type": "text"
+            "type": "git",
+            "tips": [
+                "git",
+                "g"
+            ],
+            "style": "powerline",
+            "foreground": "#14A5AE",
+            "background": "#0CA0D8",
+            "leading_powerline_symbol": "",
+            "trailing_powerline_symbol": "",
+            "template": " {{ .HEAD }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
+            "properties": {
+                "fetch_status": true,
+                "fetch_upstream_icon": true
+            }
         }
-      ],
-      "type": "prompt"
-    }
-  ],
-  "version": 2,
-  "alias": {
-    "docker-ps": "docker ps --format 'table {{.Names}}\t{{.Ports}}\t{{.Status}}'",
-    "docker-ps-command": "docker ps --format 'table {{.Names}}\t{{.Command}}' --no-trunc",
-    "l": "lsd",
-    "ls": "lsd"
-  }
+    ],
+    "version": 3,
+    "final_space": true,
+    "console_title": true,
+    "console_title_style": "folder",
+    "console_title_template": "{{ .Folder }} - oh-my-posh"
 }
